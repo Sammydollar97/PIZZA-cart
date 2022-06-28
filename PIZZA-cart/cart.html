@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><Pizza-perfect></title>
+    <link rel="stylesheet" href="style.css">
+    <script src="//unpkg.com/alpinejs" defer></script>
+</head>
+
+<style>
+    body {
+        background-color: #80ed99;
+        flex: 1;
+    }
+
+    .pizza {
+        background-color: #c7f9cc; border-radius: 1em;
+        
+    }
+    
+    .pizza {
+        
+        padding: 5px;
+        margin-bottom: 5px;
+        border-radius: 1em;
+        margin: 2px;
+
+    }
+
+    .large {
+        background-color: #38A3A5
+        
+    }
+
+    .medium {
+        background-color: greenyellow;
+        
+    }
+
+    .small {
+        background-color: #57CC99
+        
+    }
+
+    .header {
+        margin-bottom: 20px;
+
+    }
+
+    .footer {
+        background-color: #22577A;
+    }
+
+    .align {
+        text-align: center;
+    }
+    .box {
+    border: 3px solid rgb(15, 15, 15);
+    padding: 1 em;
+    margin: 1em;
+    margin-bottom: 0.5em;
+    border-radius: 1em;
+
+
+}
+    
+
+     @media(min-width: 960px) {
+.pizzas {
+    display: flexbox;
+    background-color: red
+}
+.X{
+    display: flex;
+}
+       }
+       table {
+    border-collapse: collapse;
+    width: 20%;
+    margin-left:30%; 
+    margin-right:30%;
+    font-size: xx-large;
+}
+
+td {
+    text-align: center;
+    vertical-align: bottom;
+    /* height: 50px; */
+}
+th,
+td {
+padding: 15px;
+text-align: left;
+border: 1px solid #ccc;
+font-size: xx-large;
+
+}
+
+.nice  {
+    padding: 1em;
+    background-color: dodgerblue;
+    display: flex;
+    border-radius: 0.5em;
+    justify-content: center; } */
+    
+
+
+.nice {
+    text-align: center;
+}
+.mid{
+    text-align: center;
+}
+
+.btn{
+    width: 30%;
+    margin-left:35%; 
+    margin-right:35%;
+    font-size: xx-large;
+}
+.marg{
+    margin-left: 15%;
+}
+.mpic{
+    margin-bottom: 3em;
+}
+.spic{
+    margin-bottom: 4em;
+}
+.Head{
+    padding: 1em;
+    background-color: dodgerblue;
+margin-bottom: 0.2cm;
+
+}
+.input {
+    margin: 1em;
+}
+.btn {
+    padding: 0.5em 0em 0.5em 0em;
+    width: 5em;
+    background-color:azure;
+    color: rgb(61, 60, 60);
+    font-weight: bold;
+    border: 0;
+    cursor: pointer;
+    border-radius: 0.25em;
+    font-size: xx-large;
+}
+.btnn{
+    background-color:azure;
+    color: rgb(61, 60, 60);
+    font-weight: bold;
+    border: 0;
+    cursor: pointer;
+    width: 6em;
+
+}
+.message {
+    padding: 1em;
+    font-weight: bold;
+    background-color: rgb(177, 196, 195);
+    font-size: xx-large;
+}
+.cart {
+    width: 9em;
+    background-color:azure;
+    color: rgb(61, 60, 60);
+    font-weight: bold;
+    border: 0;
+    cursor: pointer;
+    border-radius: 0.5em
+    font-size: xx-large;
+}
+    
+
+
+
+
+</style>
+<body>
+    
+    <div class="highest" x-data="{showCart: false, 
+        largeTotal: 0, largeQty:0,
+         mediumTotal: 0, mediumQty:0, 
+         smallTotal: 0, smallQty:0, 
+         paymentAmount: 0,
+         paymentMessage: '',
+         cartTotal(){
+            return this.largeTotal + this.mediumTotal + this.smallTotal;
+         },
+
+         makePayment(){
+            if (!this.paymentAmount){
+                this.paymentMessage = 'Oops, amount added!'
+            }
+            if (this.paymentAmount >= this.cartTotal() ){
+                this.paymentMessage = 'PAYMENT APPROVED'
+                setTimeout(() => {
+                    this.payNow = false;
+                    this.clearCart()
+                },3000);
+            }
+                
+                else{
+                    this.paymentMessage = 'PAYMENT DECLINED! TRY AGAIN!!!';
+                }
+         },
+         clearCart(){
+           this.largeTotal= 0;
+           this.largeQty = 0;
+           this.mediumTotal = 0;
+           this.mediumQty = 0 ;
+           this.smallTotal = 0; 
+           this.smallQty = 0; 
+         }
+        }">
+         
+        
+        <div class="Head">
+            <h1> MONATE PERFECT PIZZA</h1>
+        </div >
+ <h2 style="color: rgb(119, 23, 128);">Monate pizza,taste like heaven</h2>
+        
+        
+        <div class="cartb" >
+            <div>
+                <button x-on:click="showCart=true">
+                    <img src="basket.png.jpg" width="75" alt="">
+                    <h2>show cart </h2>
+                </button>     
+                
+
+            <strong x-show="quantityTotal() > 0">
+                There are <span x-text="quantityTotal().toFixed()">  </span> Pizzas in the cart
+            </strong>
+
+        </a>
+                
+
+            </div>
+            <div>
+            <div class="cart-Box">
+                <div class="cart" x-show="showCart">
+                    <div>
+                        <button x-on:click="showCart=false">
+                            <img src="basket.png.jpg" width="45" alt="">
+                            <h2>close Cart</h2>
+                        </button>
+
+            </div>
+
+
+
+
+
+            <table style="width:30%;">
+    
+                    <td> <strong>Small</strong></td>
+                
+                <td><span x-text="smallQty"></span></td>
+                <td> <button x-on:click="smallTotal+=25; smallQty+=1; ">+</button> </td>
+                <td> <button x-on:click="if(smallQty>0){smallTotal-=25; smallQty-=1}">-</button> </td>
+                <td><span>R</span></td>
+                <td x-text="smallTotal"></td>
+                </tr>
+                
+                <tr>
+                    <td> <strong>Medium</strong></td>
+                    <td><span x-text="mediumQty"></span></td>
+                    <td> <button @click="mediumTotal+=89; mediumQty+=1;">+</button> </td>
+                    <td> <button @click="if(mediumTotal>0){mediumTotal-=89; mediumQty-=1}">-</button> </td>
+                    <td><span>R</span></td>
+                    <td x-text="mediumTotal"></td>
+                    </tr>
+                
+                    <tr>
+                        <td> <strong>Large</strong></td>
+                        <td><span x-text="largeQty"></span></td>
+                        <td> <button @click="largeTotal+=129; largeQty+=1;">+</button> </td>
+                        <td> <button @click="if(largeQty > 0) {largeTotal-=129; largeQty-=1}">-</button> </td>
+                        <td><span>R</span></td>
+                        <td x-text ="largeTotal"></td>
+                        </tr>
+                        <tr>
+                            <td> <strong>Total cost</strong></td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <b><strong> <td><span>R</span></td></strong></b>
+                         <b> <strong> <td  x-text="cartTotal()" ></td></strong></b>
+                            </tr>
+                </table>
+                       <div >
+                       <div class="message" x-text="paymentMessage"> </div>
+                        <label for=""><h2>Payment Amount</h2></label>
+                        <input class="input" type="number" placeholder="Payment amount" x-model="paymentAmount">
+                        <button x-on:click="makePayment" class="btnn"><h2>PAYMENT</h2></button>
+                </div>
+            </div>
+    <div class="X" >
+            <div class= "pizza small pizza" >
+            <h1>small pizza</h1>
+            <img src="small pizzas.png.jpg" alt="" width="500" >
+            <img src="sprit.png.jpg" alt="" width="150" >
+            
+            <h1>R25.00</h1>
+            <div><h2> Creamy chicken
+                  mashroom and herbs,
+                  tossed in penne pasta, 
+                  tapped in mozzarella & cheddar cheese.creamy chicken
+                  mashroom and herbs,
+                  tossed in penne pasta, 
+                  tapped in mozzarella & cheddar cheese,2 Numbers pizza base readymade
+                  100 grams onion chopped
+                  100 grams tomato chopped
+                  70 grams capsicum ( green pepper) chopped
+                  50 grams mushroom sliced.Veggie sausage
+                  Bell peppers
+                  Red onion
+                  Olives
+                  Pickled Jalapeños</h2>
+                </div>
+                <div style="text-align: center; padding: 40px; padding-top: 70px;"> 
+                    <button style="font-size:large; width:150px;" x-on:click="smallTotal+=25; smallQty+=1;">Buy</button> 
+                </div>
+            </div>
+
+            
+        
+        <div class="pizza large pizza">
+            <h1>Large Pizza</h1>
+            <img src="large pizza.png.webp" alt="" width="300">
+            <img src="fanta orange.png.jpg" alt="" width="150" >
+            <h1>R129</h1>
+            <div>,<h2> Peri-Peri chicken,creamy chicken
+                mashroom and herbs,
+                tossed in penne pasta, 
+                tapped in mozzarella & cheddar cheese,2 Numbers pizza base readymade
+                100 grams onion chopped
+                100 grams tomato chopped
+                70 grams capsicum ( green pepper) chopped
+                50 grams mushroom sliced.Veggie sausage
+                Bell peppers
+                Red onion
+                Olives
+                Pickled Jalapeños
+    
+                <span>mayo tossed in penne pasta,</span> 
+    
+                tapped in mozzarella & cheddar cheese</h2>></div>
+                
+                <div style="text-align: center; padding: 40px; padding-top: 70px;"> 
+                    <button style="font-size:large; width:150px;" @click="largeTotal+=129; largeQty+=1;">Buy</button> 
+                </div>
+    
+        </div>
+        <div class="pizza medium pizza" >
+            <h1>medium pizza</h1>
+            <img src="medium pizza.png.jpg" alt="" width="300" style="border-radius: ;0.25em">
+            <img src="coke.png.jpg" alt="" width="250" >
+            <div class="pizza">
+    
+                <h1>R89.00</h1>
+                <h2> chicken
+                    mashroom and herbs,
+                    tossed in penne pasta, 
+                    tapped in mozzarella & cheddar cheese,2 Numbers pizza base readymade
+                    100 grams onion chopped
+                    100 grams tomato chopped
+                    70 grams capsicum ( green pepper) chopped
+                    50 grams mushroom sliced.Veggie sausage
+                    Bell peppers
+                    Red onion
+                    Olives
+                    Pickled Jalapeños
+                </h2></div>
+                    <div style="text-align: center; padding: 40px; padding-top: 70px;"> 
+                        <button style="font-size:large; width:150px;" @click="mediumTotal+=89; mediumQty+=1;showCheckout=true; showCart=true;">Buy</button> 
+                    </div>
+        
+                </div>
+        </div>
+        <div class="pizza footer">
+            <h2>contact details</h2>
+            0727345758  info@pizzaFf.com
+            <h2>facebook</h2>
+            sammydollar97
+            <h3>instagram</h3>
+            Mr PIZZA
+    
+    
+        </div>
+    </div>
+    
+    </body>
+    
+    </html>
